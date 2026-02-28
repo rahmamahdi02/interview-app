@@ -13,6 +13,7 @@ export default function CommentList() {
     // If response is not ok, throw an error
     // Parse JSON and store array of comment objects in state
     // If fetch fails, catch error and store message in error state
+
     useEffect(() => {
         const fetchEmails = async () => {
             try {
@@ -39,6 +40,11 @@ export default function CommentList() {
         email.email.toLowerCase().includes(search.toLowerCase())
     );
 
+    const paginated = filtered.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
+    
     // Data is an array of objects, map sover each one
     // Render each email field in a list item, using id as the unique key
     return (
