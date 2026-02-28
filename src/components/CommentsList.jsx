@@ -6,6 +6,8 @@ export default function CommentList() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");        // FIX 1: was missing
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
 
     // On mount, trigger async fetch from mock API
     // If response is not ok, throw an error
