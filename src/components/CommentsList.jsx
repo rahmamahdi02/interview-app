@@ -5,7 +5,7 @@ export default function CommentList() {
     const [emails, setEmails] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [search, setSearch] = useState("");        // FIX 1: was missing
+    const [search, setSearch] = useState("");        
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
 
@@ -54,6 +54,8 @@ export default function CommentList() {
                 placeholder="Search emails..."
                 value={search}
                 onChange={(e) => { setSearch(e.target.value); setCurrentPage(1); }}
+                style={{ marginBottom: "16px", padding: "8px", width: "100%" }}
+                
             />
     
             <div>
