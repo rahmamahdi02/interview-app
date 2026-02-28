@@ -44,7 +44,7 @@ export default function CommentList() {
         (currentPage - 1) * itemsPerPage,
         currentPage * itemsPerPage
     );
-    
+
     // Data is an array of objects, map sover each one
     // Render each email field in a list item, using id as the unique key
     return (
@@ -56,13 +56,20 @@ export default function CommentList() {
                 onChange={(e) => setSearch(e.target.value)}
             />
 
-{filtered.map((comment) => (
+            {filtered.map((comment) => (
                 <div key={comment.id} style={{
                     border: "1px solid #ccc",
                     borderRadius: "6px",
                     padding: "12px",
                     marginBottom: "12px"
                 }}>
+                    <button onClick={() => setCurrentPage(p => p - 1)} disabled={currentPage === 1}>
+                        Prev
+                    </button>
+                    <span> Page {currentPage} </span>
+                    <button onClick={() => setCurrentPage(p => p + 1)} disabled={currentPage * itemsPerPage >= filtered.length}>
+                        Next
+                    </button>
                     <p><strong>{comment.name}</strong></p>
                     <p>{comment.email}</p>
                     <p>{comment.body}</p>
