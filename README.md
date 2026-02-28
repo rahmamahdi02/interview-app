@@ -2,6 +2,9 @@
 
 A React app that fetches comments from a mock API and displays them as cards.
 
+## Demo
+
+https://github.com/user-attachments/assets/85feeb0c-9539-4c1e-a130-3d4ba70861c6
 
 ## Features
 - Fetches data from JSONPlaceholder API on mount
