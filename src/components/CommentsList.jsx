@@ -53,23 +53,26 @@ export default function CommentList() {
                 type="text"
                 placeholder="Search emails..."
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => { setSearch(e.target.value); setCurrentPage(1); }}
             />
-
-            {filtered.map((comment) => (
+    
+            <div>
+                <button onClick={() => setCurrentPage(p => p - 1)} disabled={currentPage === 1}>
+                    Prev
+                </button>
+                <h2 style={{ display: "inline", margin: "0 12px" }}>Page {currentPage}</h2>
+                <button onClick={() => setCurrentPage(p => p + 1)} disabled={currentPage * itemsPerPage >= filtered.length}>
+                    Next
+                </button>
+            </div>
+    
+            {paginated.map((comment) => (
                 <div key={comment.id} style={{
                     border: "1px solid #ccc",
                     borderRadius: "6px",
                     padding: "12px",
                     marginBottom: "12px"
                 }}>
-                    <button onClick={() => setCurrentPage(p => p - 1)} disabled={currentPage === 1}>
-                        Prev
-                    </button>
-                    <span> Page {currentPage} </span>
-                    <button onClick={() => setCurrentPage(p => p + 1)} disabled={currentPage * itemsPerPage >= filtered.length}>
-                        Next
-                    </button>
                     <p><strong>{comment.name}</strong></p>
                     <p>{comment.email}</p>
                     <p>{comment.body}</p>
