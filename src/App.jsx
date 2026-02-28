@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <div>
-        <h2>Search User Comments</h2>
+        <h1>Search User Comments</h1>
       <CommentList />
       </div>
     </>

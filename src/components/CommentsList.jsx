@@ -47,11 +47,19 @@ export default function CommentList() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
             />
-            <ul>
-                {filtered.map((email) => (   // FIX 2: was emails.map syntax
-                    <li key={email.id}>{email.email}</li>
-                ))}
-            </ul>
+
+{filtered.map((comment) => (
+                <div key={comment.id} style={{
+                    border: "1px solid #ccc",
+                    borderRadius: "6px",
+                    padding: "12px",
+                    marginBottom: "12px"
+                }}>
+                    <p><strong>{comment.name}</strong></p>
+                    <p>{comment.email}</p>
+                    <p>{comment.body}</p>
+                </div>
+            ))}
         </div>
     );
 }
